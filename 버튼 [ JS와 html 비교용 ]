@@ -32,3 +32,40 @@
 
 </body>
 </html>
+
+
+
+
+import { useState } from "react";
+
+export default function Counter() {
+  // ① "기억"할 값을 선언. count = 지금 값, setCount = 이 값을 바꾸는 전용 함수
+  const [count, setCount] = useState(0);
+
+  // ② 버튼 클릭되면 실행될 함수. "화면을 직접 안 건드리고" 값만 바꿈
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  // ③ 화면 자체가 "지금 count 값"을 그대로 보여주도록 되어있음
+  return (
+    <div style={{ textAlign: "center", paddingTop: "80px", fontFamily: "sans-serif" }}>
+      <h1 style={{ fontSize: "48px" }}>{count}</h1>
+      <button
+        onClick={handleClick}
+        style={{ fontSize: "20px", padding: "12px 24px", cursor: "pointer" }}
+      >
+        누르면 +1
+      </button>
+    </div>
+  );
+}
+
+
+// Main 에서 <Counter /> 하면 Counter 호출
+
+
+
+
+
+
