@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<style>
+  body { font-family: sans-serif; text-align: center; padding-top: 80px; }
+  button { font-size: 20px; padding: 12px 24px; cursor: pointer; }
+  h1 { font-size: 48px; }
+</style>
+</head>
+<body>
+
+  <!-- ① HTML: 그냥 화면에 보이는 것들. 여기까진 이미 알고 계신 부분 -->
+  <h1 id="count-display">0</h1>
+  <button id="my-button">누르면 +1</button>
+
+  <script>
+    // ② JS: HTML 요소를 "찾아서" 붙잡기
+    //   document.getElementById("아이디") = HTML에서 그 id를 가진 태그를 찾아옴
+    const display = document.getElementById("count-display"); // <h1>을 붙잡음
+    const button = document.getElementById("my-button");       // <button>을 붙잡음
+
+    // ③ 이 숫자를 "기억"할 변수. HTML은 아무것도 기억 못 하니 JS가 대신 기억해줌
+    let count = 0;
+
+    // ④ "이 버튼이 클릭되면, 이 함수를 실행해라"라고 브라우저에게 등록
+    button.addEventListener("click", function () {
+      count = count + 1;              // 기억하던 숫자를 1 늘림
+      display.textContent = count;    // 화면의 <h1> 글자를 그 숫자로 직접 덮어씀
+    });
+  </script>
+
+</body>
+</html>
